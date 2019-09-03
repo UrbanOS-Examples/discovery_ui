@@ -1,9 +1,19 @@
 {
   "presets": [
-    "@babel/preset-env",
-    "@babel/react"
+    "@babel/preset-react",
+    "@babel/preset-env"
   ],
   "plugins": [
-    "@babel/plugin-syntax-dynamic-import"
+    "@babel/plugin-syntax-dynamic-import",
+    [
+      "babel-plugin-react-css-modules",
+      {
+        "filetypes": {
+          ".scss": {
+            "syntax": "postcss-scss"
+          }
+        }
+      }
+    ]
   ]
 }

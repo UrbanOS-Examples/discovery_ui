@@ -2,7 +2,7 @@
   "name": "discovery",
   "version": "1.0.0",
   "description": "UI for dataset discovery",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SmartColumbusOS/discovery.git"
@@ -13,11 +13,18 @@
     "url": "https://github.com/SmartColumbusOS/discovery/issues"
   },
   "homepage": "https://github.com/SmartColumbusOS/discovery#readme",
+  "peerDependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "acorn": "^7.0.0",
     "axios": "^0.19.0",
-    "babel-polyfill": "^6.26.0",
+    "babel-plugin-react-css-modules": "^5.2.6",
     "css-loader": "^1.0.1",
     "leaflet": "^1.5.1",
     "lodash": "^4.17.12",
@@ -54,15 +61,30 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-do-expressions": "^7.5.0",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
+    "@babel/plugin-proposal-function-bind": "^7.2.0",
+    "@babel/plugin-proposal-function-sent": "^7.5.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.2.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.5.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-syntax-import-meta": "^7.2.0",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "@gfx/zopfli": "^1.0.14",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^24.6.0",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.5",
+    "babel-preset-react": "^6.24.1",
     "compression-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "create-react-component-folder": "^0.1.30",
@@ -76,8 +98,10 @@
     "mini-css-extract-plugin": "^0.4.5",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
+    "postcss-scss": "^2.0.0",
     "standard": "^12.0.1",
     "webpack": "^4.39.2",
+    "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.3.1"
   },
   "standard": {
@@ -96,7 +120,7 @@
     }
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack",
     "start": "webpack-dev-server --mode development",
     "lint": "standard --fix",
     "test": "jest",
