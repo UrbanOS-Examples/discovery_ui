@@ -4,16 +4,6 @@
     "@babel/preset-env"
   ],
   "plugins": [
-    "@babel/plugin-syntax-dynamic-import",
-    [
-      "babel-plugin-react-css-modules",
-      {
-        "filetypes": {
-          ".scss": {
-            "syntax": "postcss-scss"
-          }
-        }
-      }
-    ]
+    "@babel/plugin-syntax-dynamic-import"
   ]
 }
