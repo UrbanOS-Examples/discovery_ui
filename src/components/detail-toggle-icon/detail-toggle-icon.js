@@ -11,9 +11,7 @@ export default class extends Component {
     render() {
         return (
             <detail-toggle-icon >
-                <Icon className="collapse-icon">
-                    {this.props.expanded ? <ExpandLess /> : <ExpandMore />}
-                </Icon>
+                {this.props.expanded ? <ExpandLess className="collapse-icon" /> : <ExpandMore className="collapse-icon" />}
             </detail-toggle-icon>
         )
     }

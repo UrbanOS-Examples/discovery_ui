@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const zopfli = require('@gfx/zopfli')
 const webpack = require('webpack')
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = (env, argv) => {
 
@@ -21,7 +22,7 @@ module.exports = (env, argv) => {
       { from: 'config' }
     ]),
     new webpack.ProvidePlugin({
-      "React": "react",
+      "React": "react"
     })
   ]
 
@@ -38,20 +39,22 @@ module.exports = (env, argv) => {
 
   return {
     entry: './src/index.js',
+    mode: 'development',
+    target: 'node',
     output: {
       filename: 'index.js',
       path: path.resolve(__dirname, 'lib'),
       libraryTarget: 'commonjs2'
     },
+    externals: [nodeExternals({ importType: 'commonjs2' })],
     module: {
       rules: [
         {
           test: /\.js$/,
-          exclude: /node_modules/,
+          exclude: [/node_modules/, /\.test\.js/],
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
               plugins: [require('@babel/plugin-proposal-object-rest-spread')]
             }
           }

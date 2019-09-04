@@ -1,5 +1,5 @@
 import './api-example.scss'
-import FilterNoneIcon from '@material-ui/icons/'
+import FilterNoneIcon from '@material-ui/icons/FilterNone'
 
 export default ({ title, descriptionHtml, action, url, params, examples }) => {
   return (
