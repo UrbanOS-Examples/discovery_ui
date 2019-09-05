@@ -2,9 +2,9 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-// const CompressionPlugin = require('compression-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-// const zopfli = require('@gfx/zopfli')
+const CompressionPlugin = require('compression-webpack-plugin')
+const zopfli = require('@gfx/zopfli')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = (env, argv) => {
 
@@ -19,26 +19,19 @@ module.exports = (env, argv) => {
     }),
     new CopyWebpackPlugin([
       { from: 'config' }
-    ]),
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          comparisons: false  // don't optimize comparisons
-        }
-      },
-    })
+    ])
   ]
 
   if (argv.mode === 'production') {
-    // plugins.push(new CompressionPlugin({
-    //   exclude: /config/,
-    //   compressionOptions: {
-    //     numiterations: 15,
-    //   },
-    //   algorithm(input, compressionOptions, callback) {
-    //     return zopfli.gzip(input, compressionOptions, callback);
-    //   },
-    // }))
+    plugins.push(new CompressionPlugin({
+      exclude: /config/,
+      compressionOptions: {
+        numiterations: 15,
+      },
+      algorithm(input, compressionOptions, callback) {
+        return zopfli.gzip(input, compressionOptions, callback);
+      },
+    }))
   }
 
   return {
@@ -46,17 +39,15 @@ module.exports = (env, argv) => {
       main: ['babel-polyfill', path.join(__dirname, 'src', 'index.js')]
     },
     output: {
-      filename: '[name].6.js',
-      // filename: '[name].[contenthash].js',
+      filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/'
     },
     module: {
-      noParse: /(mapbox-gl)\.js$/,
       rules: [
         {
           test: /\.js$/,
-          exclude: [/node_modules/, /(mapbox-gl)\.js$/],
+          exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
@@ -105,18 +96,15 @@ module.exports = (env, argv) => {
     },
     plugins: plugins,
     optimization: {
-      minimize: false,
+      minimize: true,
       minimizer: [
-        new UglifyJsPlugin({
-          uglifyOptions: {
+        new TerserPlugin({
+          terserOptions: {
             compress: {
-              comparisons: false  // don't optimize comparisons
+              typeofs: false
             }
           }
-          // uglifyOptions: {
-          //   mangle: false 
-          // }
-        })
+        }),
       ],
       moduleIds: 'hashed',
       runtimeChunk: 'single',
