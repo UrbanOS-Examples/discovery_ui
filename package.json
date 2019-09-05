@@ -1,24 +1,24 @@
 {
-  "name": "discovery-consumer",
+  "name": "discovery-ui",
   "version": "1.0.0",
   "description": "UI for dataset discovery",
   "main": "./src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SmartColumbusOS/discovery.git"
+    "url": "git+https://github.com/smartcitiesdata/discovery_ui.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SmartColumbusOS/discovery/issues"
+    "url": "https://github.com/smartcitiesdata/discovery_ui/issues"
   },
   "browserslist": [
     "last 2 version",
     "> 1%"
   ],
-  "homepage": "https://github.com/SmartColumbusOS/discovery#readme",
+  "homepage": "https://github.com/smartcitiesdata/discovery_ui#readme",
   "dependencies": {
-    "discovery": "file:../discovery-ui/discovery-1.0.0.tgz",
+    "@smartcitiesdata/react-discovery-ui": "0.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

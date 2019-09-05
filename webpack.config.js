@@ -36,7 +36,7 @@ module.exports = (env, argv) => {
 
   return {
     entry: {
-      main: ['babel-polyfill', path.join(__dirname, 'src', 'index.js')]
+      main: ['@babel/polyfill', path.join(__dirname, 'src', 'index.js')]
     },
     output: {
       filename: '[name].[contenthash].js',
@@ -70,9 +70,7 @@ module.exports = (env, argv) => {
               loader: 'postcss-loader',
               options: {
                 ident: 'postcss',
-                plugins: [require('autoprefixer')({
-                  browsers: ['> 1%', 'last 2 versions']
-                })]
+                plugins: [require('autoprefixer')()]
               }
             },
             'sass-loader'
