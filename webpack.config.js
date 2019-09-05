@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const zopfli = require('@gfx/zopfli')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = (env, argv) => {
 
@@ -23,6 +24,7 @@ module.exports = (env, argv) => {
 
   if (argv.mode === 'production') {
     plugins.push(new CompressionPlugin({
+      exclude: /config/,
       compressionOptions: {
         numiterations: 15,
       },
@@ -94,6 +96,16 @@ module.exports = (env, argv) => {
     },
     plugins: plugins,
     optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            compress: {
+              typeofs: false
+            }
+          }
+        }),
+      ],
       moduleIds: 'hashed',
       runtimeChunk: 'single',
       splitChunks: {
