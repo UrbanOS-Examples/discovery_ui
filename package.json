@@ -2,7 +2,7 @@
   "name": "discovery",
   "version": "1.0.0",
   "description": "UI for dataset discovery",
-  "main": "./lib/index.js",
+  "main": "./lib/App.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SmartColumbusOS/discovery.git"
@@ -73,7 +73,6 @@
     "@babel/plugin-proposal-throw-expressions": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
-    "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@gfx/zopfli": "^1.0.14",
@@ -84,6 +83,7 @@
     "babel-plugin-inline-react-svg": "^1.1.0",
     "babel-plugin-inline-svg": "^1.0.1",
     "babel-plugin-react-css-modules": "^5.2.6",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "compression-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^4.6.0",

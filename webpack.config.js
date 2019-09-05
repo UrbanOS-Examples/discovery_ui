@@ -2,59 +2,41 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const CompressionPlugin = require('compression-webpack-plugin')
-const zopfli = require('@gfx/zopfli')
-const webpack = require('webpack')
-const nodeExternals = require('webpack-node-externals');
 
 module.exports = (env, argv) => {
 
   let plugins = [
-    // new HtmlWebpackPlugin({
-    //   template: './src/index.html',
-    //   filename: './index.html'
-    // }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: './index.html'
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
       chunkFilename: '[id].[hash].css'
     }),
     new CopyWebpackPlugin([
       { from: 'config' }
-    ]),
-    new webpack.ProvidePlugin({
-      "React": "react"
-    })
+    ])
   ]
 
-  // if (argv.mode === 'production') {
-  //   plugins.push(new CompressionPlugin({
-  //     compressionOptions: {
-  //       numiterations: 15,
-  //     },
-  //     algorithm(input, compressionOptions, callback) {
-  //       return zopfli.gzip(input, compressionOptions, callback);
-  //     },
-  //   }))
-  // }
-
   return {
-    entry: './src/index.js',
-    mode: 'development',
-    target: 'node',
-    output: {
-      filename: 'index.js',
-      path: path.resolve(__dirname, 'lib'),
-      libraryTarget: 'commonjs2'
+    entry: {
+      main: ['babel-polyfill', path.join(__dirname, 'src', 'index.js')]
     },
-    externals: [nodeExternals({ importType: 'commonjs2' })],
+    output: {
+      filename: '[name].[contenthash].js',
+      path: path.resolve(__dirname, 'dist'),
+      publicPath: '/'
+    },
     module: {
       rules: [
         {
           test: /\.js$/,
-          exclude: [/node_modules/, /\.test\.js/],
+          exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
+              presets: ['@babel/preset-env'],
               plugins: [require('@babel/plugin-proposal-object-rest-spread')]
             }
           }
@@ -71,9 +53,9 @@ module.exports = (env, argv) => {
           test: /\.(css|scss)$/,
           use: [
             'style-loader',
-            // {
-            //   loader: MiniCssExtractPlugin.loader
-            // },
+            {
+              loader: MiniCssExtractPlugin.loader
+            },
             'css-loader',
             {
               loader: 'postcss-loader',
@@ -97,6 +79,19 @@ module.exports = (env, argv) => {
       port: 9001,
       host: '0.0.0.0'
     },
-    plugins: plugins
+    plugins: plugins,
+    optimization: {
+      moduleIds: 'hashed',
+      runtimeChunk: 'single',
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          }
+        }
+      }
+    }
   }
 }
