@@ -1,8 +1,0 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
-
-dataset-api-doc {
-  a {
-    @include sub-link();
-  }
-}

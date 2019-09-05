@@ -1,5 +1,5 @@
 
-import App from './App.js'
+import App from 'discovery'
 import './index.css'
 
 import React from 'react'
