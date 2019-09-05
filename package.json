@@ -17,7 +17,6 @@
     "> 1%"
   ],
   "homepage": "https://github.com/SmartColumbusOS/discovery#readme",
-  "peerDependencies": {},
   "dependencies": {
     "discovery": "file:../discovery-ui/discovery-1.0.0.tgz",
     "react": "^16.8.6",
@@ -42,10 +41,12 @@
     "@babel/plugin-proposal-throw-expressions": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
+    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@gfx/zopfli": "^1.0.14",
     "babel-loader": "^8.0.6",
-    "babel-polyfill": "^6.26.0",
+    "compression-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "create-react-component-folder": "^0.1.30",
     "css-loader": "^1.0.1",
@@ -64,11 +65,6 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.2.1"
-  },
-  "standard": {
-    "env": [
-      "jest"
-    ]
   },
   "scripts": {
     "build": "webpack --mode production",
