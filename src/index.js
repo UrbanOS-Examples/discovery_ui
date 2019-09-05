@@ -1,13 +1,10 @@
+import 'normalize.css'
 import DiscoveryUI from './App.js'
-import ErrorComponent from './components/generic-elements/error-component'
 import sagas from './store/sagas'
 import { reducers } from './store/reducers'
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
-
-console.log(ErrorComponent)
-
 
 const Redux = {
   start: (reducerMap = {}) => {

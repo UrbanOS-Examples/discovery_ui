@@ -24,7 +24,7 @@ const DiscoveryUI = () => (
       <Switch>
         <Route exact path={routes.root} component={DataSetListViewWrapper} />
         <Route exact path={routes.datasetView} component={DatasetView} />
-        <Route exact path={routes.datasetVisualizationView} component={props => <DatasetVisualizationView {...props} />} />
+        <Route exact path={routes.datasetVisualizationView} component={DatasetVisualizationView} />
         <Route exact path={routes.healthCheck} component={() => <div>Everything is fine</div>} />
         <Route exact path={routes.login} component={LoginView} />
         <Route component={noMatch} />
