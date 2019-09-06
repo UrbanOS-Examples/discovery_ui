@@ -1,7 +1,7 @@
 [![Master](https://travis-ci.org/smartcitiesdata/discovery_ui.svg?branch=master)](https://travis-ci.org/smartcitiesdata/discovery_ui)
 # discovery_ui
 
-Front-end application for interacting with datasets within the platform.
+Front-end application for interacting with datasets within the platform. This is the Smart Columbus OS implementation of the [react_discovery_ui](https://github.com/smartcitiesdata/react_discovery_ui) component.
 
 ## Install Dependencies
 `npm install`
