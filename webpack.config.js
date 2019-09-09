@@ -36,7 +36,7 @@ module.exports = (env, argv) => {
 
   return {
     entry: {
-      main: ['babel-polyfill', path.join(__dirname, 'src', 'index.js')]
+      main: ['@babel/polyfill', path.join(__dirname, 'src', 'index.js')]
     },
     output: {
       filename: '[name].[contenthash].js',
@@ -48,13 +48,7 @@ module.exports = (env, argv) => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-              plugins: [require('@babel/plugin-proposal-object-rest-spread')]
-            }
-          }
+          use: [{ loader: 'babel-loader' }]
         },
         {
           test: /\.(pdf|jpg|png|gif|ico)$/,
@@ -76,9 +70,7 @@ module.exports = (env, argv) => {
               loader: 'postcss-loader',
               options: {
                 ident: 'postcss',
-                plugins: [require('autoprefixer')({
-                  browsers: ['> 1%', 'last 2 versions']
-                })]
+                plugins: [require('autoprefixer')()]
               }
             },
             'sass-loader'
