@@ -18,7 +18,7 @@
   ],
   "homepage": "https://github.com/smartcitiesdata/discovery_ui#readme",
   "dependencies": {
-    "@smartcitiesdata/react-discovery-ui": "0.0.2",
+    "@smartcitiesdata/react-discovery-ui": "0.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
