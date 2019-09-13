@@ -1,5 +1,5 @@
 
-import App from '@smartcitiesdata/react-discovery-ui'
+import App from './app'
 import './index.css'
 
 import React from 'react'

@@ -18,6 +18,9 @@
   ],
   "homepage": "https://github.com/smartcitiesdata/discovery_ui#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-brands-svg-icons": "^5.10.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "@smartcitiesdata/react-discovery-ui": "0.0.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -50,8 +53,12 @@
     "copy-webpack-plugin": "^4.6.0",
     "create-react-component-folder": "^0.1.30",
     "css-loader": "^1.0.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
@@ -66,9 +73,29 @@
     "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.2.1"
   },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/test-helpers/test-start-point.js"
+    ],
+    "moduleNameMapper": {
+      ".+\\.(jpg|jpeg|png|gif)$": "<rootDir>/test-helpers/image-mock.js",
+      "\\.(css|scss)$": "identity-obj-proxy",
+      "\\.(svg)$": "<rootDir>/test-helpers/mock-svg-string.js"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/lib/"
+    ]
+  },
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "test": "jest"
   }
 }
