@@ -1,0 +1,144 @@
+header {
+  background-color: white;
+  padding: 0;
+  z-index: 100;
+  position: relative;
+  margin-bottom: 75px;
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .logo {
+    position: absolute;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    margin-left: 20px;
+  }
+
+  .nav-wrapper{
+    background-color: white;
+    width: 100%;
+    float:right;
+    padding-right: 20px;
+    text-align: right;
+    box-shadow: 0 6px 7px 0 rgba(0,0,0,.15);
+  }
+
+  .nav-element{
+    display: inline-block;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    border: 5px solid white;
+  }
+
+  .nav-element:hover {
+    border: 5px solid black;
+  }
+
+  .pinned {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  .rescale {
+    -webkit-animation: scale-up 0.4s ease forwards;
+            animation: scale-up 0.4s ease forwards;
+  }
+
+  .right {
+    padding-right: 40px;
+    text-align: right;
+    min-width: 140px;
+  }
+
+  .scale-down {
+    -webkit-animation: scale-down 0.4s ease forwards;
+            animation: scale-down 0.4s ease forwards;
+  }
+
+  .slogan, .slogan a {
+    float:right;
+    color:#ea1d76;
+    font-size:10px;
+    font-weight:normal;
+  }
+
+  .social {
+    text-align: right;
+    min-width: 8rem;
+    width: 8rem;
+    border-right: 2px solid lightgrey;
+    padding-right: 20px;
+    font-size: 15px;
+
+    a {
+      padding: 10px;
+    }
+  }
+
+  .title {
+    width: 90%;
+  }
+
+  .top-bar {
+    padding: 20px 20px 20px 10px;
+  }
+
+  .wrapper {
+    padding-top: 10px;
+    color: #000;
+  }
+
+  @-webkit-keyframes scale-down {
+    0% {
+      -webkit-transform: scale(1);
+      -webkit-transform-origin: 0% 0%;
+    }
+    100% {
+      -webkit-transform: scale(0.64);
+      -webkit-transform-origin: 0% 0%;
+    }
+  }
+  @keyframes scale-down {
+    0% {
+        transform: scale(1);
+        transform-origin: 0% 0%;
+    }
+    100% {
+        transform: scale(0.64);
+        transform-origin: 0% 0%;
+    }
+  }
+
+  @-webkit-keyframes scale-up {
+    0% {
+      -webkit-transform: scale(0.64);
+      -webkit-transform-origin: 0% 0%;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      -webkit-transform-origin: 0% 0%;
+    }
+  }
+
+  @keyframes scale-up {
+    0% {
+      transform: scale(0.64);
+      transform-origin: 0% 0%;
+    }
+    100% {
+      transform: scale(1);
+      transform-origin: 0% 0%;
+    }
+  }
+}
