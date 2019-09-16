@@ -3,7 +3,6 @@ import { Component } from 'react'
 
 import Header from './components/header'
 import Footer from './components/footer'
-import './app.scss'
 
 export default class extends Component {
   constructor(props) {
