@@ -22,8 +22,8 @@
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@smartcitiesdata/react-discovery-ui": "0.1.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "~16.8.6",
+    "react-dom": "~16.8.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -93,7 +93,7 @@
     ]
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 webpack --mode production",
     "start": "webpack-dev-server --mode development",
     "lint": "standard --fix",
     "test": "jest"
