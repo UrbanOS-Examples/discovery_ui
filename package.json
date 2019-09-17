@@ -93,7 +93,7 @@
     ]
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 webpack --mode production",
     "start": "webpack-dev-server --mode development",
     "lint": "standard --fix",
     "test": "jest"
