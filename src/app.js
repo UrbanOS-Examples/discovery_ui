@@ -7,7 +7,8 @@ import Footer from './components/footer'
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.state = { brandWrapperEnabled: false }
+
+    this.state = { brandWrapperEnabled: true }
 
     window.toggleWrapper = () => {
       this.setState({ brandWrapperEnabled: !this.state.brandWrapperEnabled });
