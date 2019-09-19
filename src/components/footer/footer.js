@@ -1,4 +1,5 @@
 import './footer.scss'
+import smartStart from '../../assets/footer-smart-start.png'
 
 const Footer = props => {
   return (
@@ -16,7 +17,7 @@ const Footer = props => {
               <li><a href="https://${window.BASE_URL}/contact-us">Contact Us</a> </li>
             </ul>
           </div>
-          <div className="footerRight">< img src="https://${window.BASE_URL}/images/Assets/Footer-SmartStart.png" /></div>
+          <div className="footerRight">< img src={smartStart} /></div>
         </div >
         <div className="copyright">Smart Columbus Copyright ©2019. All rights reserved.</div>
       </div >
