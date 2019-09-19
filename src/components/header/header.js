@@ -40,18 +40,18 @@ export default class Header extends Component {
           <tbody>
             <tr>
               <td className='title'>
-                <div className="slogan"><a href="https://smart.columbus.gov/"><h2>Smart Columbus</h2></a></div>
+                <div className="slogan"><a href='https://smart.columbus.gov/'><h2>Smart Columbus</h2></a></div>
               </td>
               <td className='social'>
                 <div >
-                  <a href="https://www.facebook.com/SmartCbus/"><FontAwesomeIcon icon={faFacebookF} size="1x" /></a>
-                  <a href="https://twitter.com/smartcbus"><FontAwesomeIcon icon={faTwitter} size="1x" /></a>
-                  <a href="https://www.linkedin.com/company/smartcbus/"><FontAwesomeIcon icon={faLinkedinIn} size="1x" /></a>
+                  <a href='https://www.facebook.com/SmartCbus/'><FontAwesomeIcon icon={faFacebookF} size="1x" /></a>
+                  <a href='https://twitter.com/smartcbus'><FontAwesomeIcon icon={faTwitter} size="1x" /></a>
+                  <a href='https://www.linkedin.com/company/smartcbus/'><FontAwesomeIcon icon={faLinkedinIn} size="1x" /></a>
                 </div>
               </td>
               <td className='right'>
                 <div >
-                  <a href="https://www.columbus.gov/"> <img src={cbusLogo} height="40"></img></a>
+                  <a href='https://www.columbus.gov'> <img src={cbusLogo} height="40"></img></a>
                 </div>
               </td>
             </tr>
@@ -65,27 +65,29 @@ export default class Header extends Component {
     const aboutData = {
       title: 'ABOUT',
       items: [
-        { link: "https://${window.BASE_URL}/about/about-smart-columbus", text: "About Smart Columbus" },
-        { link: "https://${window.BASE_URL}/about/smart-city-projects", text: "Smart City Projects" },
-        { link: "https://${window.BASE_URL}/about/privacy-policy", text: "Privacy Policy" }
+        { link: `https://${window.BASE_URL}/about/about-smart-columbus`, text: "About Smart Columbus" },
+        { link: `https://${window.BASE_URL}/about/smart-city-projects`, text: "Smart City Projects" },
+        { link: `https://${window.BASE_URL}/about/privacy-policy`, text: "Privacy Policy" }
       ]
     }
 
     const dataInAction = {
       title: 'DATA IN ACTION',
       items: [
-        { link: "https://${window.BASE_URL}/data-stories/how-to-use-this-site", text: "How to Use The SCOS" },
-        { link: "https://${window.BASE_URL}/data-stories/apps-maps", text: "Apps & Maps" },
-        { link: "https://${window.BASE_URL}/data-stories/case-studies", text: "Case Studies" },
-        { link: "https://${window.BASE_URL}/data-stories/open-challenges", text: "Open Challenges" },
-        { link: "https://${window.BASE_URL}/data-stories/events", text: "Events" }
+        { link: `https://${window.BASE_URL}/data-stories/how-to-use-this-site`, text: "How to Use The SCOS" },
+        { link: `https://${window.BASE_URL}/data-stories/apps-maps`, text: "Apps & Maps" },
+        { link: `https://${window.BASE_URL}/data-stories/case-studies`, text: "Case Studies" },
+        { link: `https://${window.BASE_URL}/data-stories/open-challenges`, text: "Open Challenges" },
+        { link: `https://${window.BASE_URL}/data-stories/events`, text: "Events" }
       ]
     }
 
     const toolsData = {
       title: 'TOOLS',
       items: [
-        { link: "https://${window.BASE_URL}/tools/analytics", text: "JupyterHub Betatesters" }
+        {
+          link: `https://${window.BASE_URL}/tools/analytics`, text: "JupyterHub Betatesters"
+        }
       ]
     }
 
@@ -93,12 +95,12 @@ export default class Header extends Component {
     return (
       <div className={`nav-wrapper ${this.state.collapsed ? 'pinned' : ''}`}>
         <NavDropdown data={aboutData} />
-        <a className='nav-element highlighted' href="https://${window.BASE_URL}/data">EXPLORE DATA</a>
-        <a className='nav-element' href="https://${window.BASE_URL}/share-your-data">SHARE DATA</a>
+        <a className='nav-element highlighted' href={`https://${window.BASE_URL}/data`}>EXPLORE DATA</a>
+        <a className='nav-element' href={`https://${window.BASE_URL}/share-your-data`}>SHARE DATA</a>
         <NavDropdown data={dataInAction} />
         <NavDropdown data={toolsData} />
-        <a className='nav-element' href="https://${window.BASE_URL}/contact-us">CONNECT</a>
-      </div>
+        <a className='nav-element' href={`https://${window.BASE_URL}/contact-us`}>CONNECT</a>
+      </div >
     )
   }
 

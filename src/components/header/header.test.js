@@ -9,7 +9,6 @@ describe('Header scrollThreshold={scrollThreshold}', () => {
 
   test('starts unpinned', () => {
     const subject = shallow(<Header scrollThreshold={scrollThreshold} />)
-    const scrollio = subject.props().scrollThreshold
     expect(subject.find('.nav-wrapper').hasClass('pinned')).toBe(false);
   })
 
