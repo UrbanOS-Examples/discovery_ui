@@ -8,7 +8,7 @@ export default class extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { brandWrapperEnabled: true }
+    this.state = { brandWrapperEnabled: false }
 
     window.toggleWrapper = () => {
       this.setState({ brandWrapperEnabled: !this.state.brandWrapperEnabled });
