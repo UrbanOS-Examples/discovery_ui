@@ -9,12 +9,12 @@ const Footer = props => {
           <div className="footerLeft">
             <h2>SITEMAP</h2>
             <ul>
-              <li><a href="https://${window.BASE_URL}/data"> Data</a > </li>
-              <li><a href="https://${window.BASE_URL}/about/the-power-of-data">The Power of Data</a> </li>
-              <li><a href="https://${window.BASE_URL}/analytics">Analytics</a> </li>
-              <li><a href="https://${window.BASE_URL}/about/about-smart-columbus">About</a> </li>
-              <li><a href="https://${window.BASE_URL}/data-stories">Impact Stories</a> </li>
-              <li><a href="https://${window.BASE_URL}/contact-us">Contact Us</a> </li>
+              <li><a href={`https://${window.BASE_URL}/data`}> Data</a > </li>
+              <li><a href={`https://${window.BASE_URL}/about/the-power-of-data`}>The Power of Data</a> </li>
+              <li><a href={`https://${window.BASE_URL}/analytics`}>Analytics</a> </li>
+              <li><a href={`https://${window.BASE_URL}/about/about-smart-columbus`}>About</a> </li>
+              <li><a href={`https://${window.BASE_URL}/data-stories`}>Impact Stories</a> </li>
+              <li><a href={`https://${window.BASE_URL}/contact-us`}>Contact Us</a> </li>
             </ul>
           </div>
           <div className="footerRight">< img src={smartStart} /></div>
