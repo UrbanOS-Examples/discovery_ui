@@ -2,6 +2,7 @@ import App from '@smartcitiesdata/react-discovery-ui'
 import { Component } from 'react'
 
 import Header from './components/header'
+import HomeBanner from './components/home-banner'
 import Footer from './components/footer'
 
 export default class extends Component {
@@ -19,6 +20,7 @@ export default class extends Component {
     return (
       <div>
         {this.state.brandWrapperEnabled && <Header />}
+        {this.state.brandWrapperEnabled && <HomeBanner />}
         <App />
         {this.state.brandWrapperEnabled && <Footer />}
       </div>
