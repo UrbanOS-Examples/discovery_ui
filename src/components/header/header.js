@@ -95,7 +95,7 @@ export default class Header extends Component {
     return (
       <div className={`nav-wrapper ${this.state.collapsed ? 'pinned' : ''}`}>
         <NavDropdown data={aboutData} />
-        <a className='nav-element highlighted' href={`https://${window.BASE_URL}/data`}>EXPLORE DATA</a>
+        <a className='nav-element highlighted' href="/">EXPLORE DATA</a>
         <a className='nav-element' href={`https://${window.BASE_URL}/share-your-data`}>SHARE DATA</a>
         <NavDropdown data={dataInAction} />
         <NavDropdown data={toolsData} />
