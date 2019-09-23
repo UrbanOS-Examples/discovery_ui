@@ -1,51 +1,53 @@
 import { shallow } from 'enzyme'
 import Header from './header'
 
-describe('header', () => {
-  const scrollThreshold = 63
-  const nearlyTopOfPage = 20
+describe('Header scrollThreshold={scrollThreshold}', () => {
+  const scrollThreshold = 60
+
+  const aboveThreshold = scrollThreshold - 1
+  const belowThreshold = scrollThreshold + 1
 
   test('starts unpinned', () => {
-    const subject = shallow(<Header />)
-    expect(subject.find('.nav-wrapper').hasClass('pinned')).toEqual(false);
+    const subject = shallow(<Header scrollThreshold={scrollThreshold} />)
+    expect(subject.find('.nav-wrapper').hasClass('pinned')).toBe(false);
   })
 
-  test('does not pin on scroll within header zone', () => {
-    const subject = shallow(<Header />)
-    window.scrollY = scrollThreshold - 1
+  test('does not pin on scroll within Header scrollThreshold={scrollThreshold} zone', () => {
+    const subject = shallow(<Header scrollThreshold={scrollThreshold} />)
+    window.scrollY = aboveThreshold
     window.dispatchEvent(new Event('scroll'))
-    expect(subject.find('.nav-wrapper').hasClass('pinned')).toEqual(false);
+    expect(subject.find('.nav-wrapper').hasClass('pinned')).toBe(false);
   })
 
-  test('pins on scroll past header zone', () => {
-    const subject = shallow(<Header />)
-    window.scrollY = scrollThreshold
+  test('pins on scroll past Header scrollThreshold={scrollThreshold} zone', () => {
+    const subject = shallow(<Header scrollThreshold={scrollThreshold} />)
+    window.scrollY = belowThreshold
     window.dispatchEvent(new Event('scroll'))
-    expect(subject.find('.nav-wrapper').hasClass('pinned')).toEqual(true);
+    expect(subject.find('.nav-wrapper').hasClass('pinned')).toBe(true);
   })
 
   test('unpins on scroll back up', () => {
-    const subject = shallow(<Header />)
-    window.scrollY = scrollThreshold
+    const subject = shallow(<Header scrollThreshold={scrollThreshold} />)
+    window.scrollY = belowThreshold
     window.dispatchEvent(new Event('scroll'))
-    expect(subject.find('.nav-wrapper').hasClass('pinned')).toEqual(true);
+    expect(subject.find('.nav-wrapper').hasClass('pinned')).toBe(true);
 
-    window.scrollY = nearlyTopOfPage
+    window.scrollY = aboveThreshold
     window.dispatchEvent(new Event('scroll'))
-    expect(subject.find('.nav-wrapper').hasClass('pinned')).toEqual(false);
+    expect(subject.find('.nav-wrapper').hasClass('pinned')).toBe(false);
   })
 
   test('image animation class is applied as the page scrolls', () => {
-    const subject = shallow(<Header />)
-    expect(subject.find('.logo').hasClass('rescale')).toEqual(true);
+    const subject = shallow(<Header scrollThreshold={scrollThreshold} />)
+    expect(subject.find('.logo').hasClass('rescale')).toBe(true);
 
-    window.scrollY = scrollThreshold
+    window.scrollY = belowThreshold
     window.dispatchEvent(new Event('scroll'))
-    expect(subject.find('.logo').hasClass('scale-down')).toEqual(true);
+    expect(subject.find('.logo').hasClass('scale-down')).toBe(true);
 
-    window.scrollY = nearlyTopOfPage
+    window.scrollY = aboveThreshold
     window.dispatchEvent(new Event('scroll'))
-    expect(subject.find('.logo').hasClass('rescale')).toEqual(true);
+    expect(subject.find('.logo').hasClass('rescale')).toBe(true);
   })
 
 })

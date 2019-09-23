@@ -1,11 +1,15 @@
 import './header.scss'
 import { Component } from 'react'
-import AboutDropdown from '../about-dropdown'
+import NavDropdown from '../nav-dropdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faFacebookF, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
+import cbusLogo from '../../assets/columbus-city-logo.png'
+import smrtLogo from '../../assets/smrt-logo.png'
 
-const scrollThreshold = 62
-export default class extends Component {
+export default class Header extends Component {
+  static defaultProps = {
+    scrollThreshold: 60
+  }
 
   constructor(props) {
     super(props);
@@ -25,7 +29,7 @@ export default class extends Component {
 
   handleScroll(event) {
     this.setState({
-      collapsed: window.scrollY > scrollThreshold
+      collapsed: window.scrollY > this.props.scrollThreshold
     });
   }
 
@@ -36,18 +40,18 @@ export default class extends Component {
           <tbody>
             <tr>
               <td className='title'>
-                <div className="slogan"><a href="https://smart.columbus.gov/"><h2>Smart Columbus</h2></a></div>
+                <div className="slogan"><a href='https://smart.columbus.gov/'><h2>Smart Columbus</h2></a></div>
               </td>
               <td className='social'>
                 <div >
-                  <a href="https://www.facebook.com/SmartCbus/"><FontAwesomeIcon icon={faFacebookF} size="1x" /></a>
-                  <a href="https://twitter.com/smartcbus"><FontAwesomeIcon icon={faTwitter} size="1x" /></a>
-                  <a href="https://www.linkedin.com/company/smartcbus/"><FontAwesomeIcon icon={faLinkedinIn} size="1x" /></a>
+                  <a href='https://www.facebook.com/SmartCbus/'><FontAwesomeIcon icon={faFacebookF} size="1x" /></a>
+                  <a href='https://twitter.com/smartcbus'><FontAwesomeIcon icon={faTwitter} size="1x" /></a>
+                  <a href='https://www.linkedin.com/company/smartcbus/'><FontAwesomeIcon icon={faLinkedinIn} size="1x" /></a>
                 </div>
               </td>
               <td className='right'>
                 <div >
-                  <a href="https://www.columbus.gov/"> <img src="https://www.dev-smartos.com/images/headers/COC_Logo_Grayscale.png" height="40"></img></a>
+                  <a href='https://www.columbus.gov'> <img src={cbusLogo} height="40"></img></a>
                 </div>
               </td>
             </tr>
@@ -58,14 +62,45 @@ export default class extends Component {
   }
 
   navBar() {
+    const aboutData = {
+      title: 'ABOUT',
+      items: [
+        { link: `https://${window.BASE_URL}/about/about-smart-columbus`, text: "About Smart Columbus" },
+        { link: `https://${window.BASE_URL}/about/smart-city-projects`, text: "Smart City Projects" },
+        { link: `https://${window.BASE_URL}/about/privacy-policy`, text: "Privacy Policy" }
+      ]
+    }
+
+    const dataInAction = {
+      title: 'DATA IN ACTION',
+      items: [
+        { link: `https://${window.BASE_URL}/data-stories/how-to-use-this-site`, text: "How to Use The SCOS" },
+        { link: `https://${window.BASE_URL}/data-stories/apps-maps`, text: "Apps & Maps" },
+        { link: `https://${window.BASE_URL}/data-stories/case-studies`, text: "Case Studies" },
+        { link: `https://${window.BASE_URL}/data-stories/open-challenges`, text: "Open Challenges" },
+        { link: `https://${window.BASE_URL}/data-stories/events`, text: "Events" }
+      ]
+    }
+
+    const toolsData = {
+      title: 'TOOLS',
+      items: [
+        {
+          link: `https://${window.BASE_URL}/tools/analytics`, text: "JupyterHub Betatesters"
+        }
+      ]
+    }
+
+
     return (
       <div className={`nav-wrapper ${this.state.collapsed ? 'pinned' : ''}`}>
-        <a className='nav-element' href="https://www.dev-smartos.com/index.php/data">DATA</a>
-        <a className='nav-element' href="https://www.dev-smartos.com/index.php/data-stories">IMPACT</a>
-        <AboutDropdown />
-        <a className='nav-element' href="https://www.dev-smartos.com/index.php/share-your-data">GET INVOLVED</a>
-        <a className='nav-element' href="https://www.dev-smartos.com/index.php/contact-us">CONNECT</a>
-      </div>
+        <NavDropdown data={aboutData} />
+        <a className='nav-element highlighted' href={`https://${window.BASE_URL}/data`}>EXPLORE DATA</a>
+        <a className='nav-element' href={`https://${window.BASE_URL}/share-your-data`}>SHARE DATA</a>
+        <NavDropdown data={dataInAction} />
+        <NavDropdown data={toolsData} />
+        <a className='nav-element' href={`https://${window.BASE_URL}/contact-us`}>CONNECT</a>
+      </div >
     )
   }
 
@@ -73,7 +108,7 @@ export default class extends Component {
     return (
       <header>
         <div className={`logo ${this.state.collapsed ? 'scale-down' : 'rescale'}`}>
-          <a href="https://www.dev-smartos.com/"> <img src="https://www.smartcolumbusos.com/templates/pocsmart/images/logo.png" height='140'></img></a>
+          <a href={`https://${window.BASE_URL}`}><img src={smrtLogo} height='140'></img></a>
         </div>
         <div className="wrapper">
           {this.infoRow()}
@@ -82,5 +117,6 @@ export default class extends Component {
       </header>
     )
   }
-
 }
+
+
