@@ -8,10 +8,12 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = (env, argv) => {
 
+  const productionOptimizationsEnabled = argv.mode === 'production' ? true : false
   let plugins = [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: './index.html'
+      filename: './index.html',
+      favicon: './src/favicon.ico'
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
@@ -22,7 +24,7 @@ module.exports = (env, argv) => {
     ])
   ]
 
-  if (argv.mode === 'production') {
+  if (productionOptimizationsEnabled) {
     plugins.push(new CompressionPlugin({
       exclude: /config/,
       compressionOptions: {
@@ -81,14 +83,14 @@ module.exports = (env, argv) => {
     devServer: {
       historyApiFallback: true,
       contentBase: path.join(__dirname, 'dist'),
-      compress: true,
+      compress: productionOptimizationsEnabled,
       open: true,
       port: 9001,
       host: 'localhost'
     },
     plugins: plugins,
     optimization: {
-      minimize: true,
+      minimize: productionOptimizationsEnabled,
       minimizer: [
         new TerserPlugin({
           terserOptions: {
