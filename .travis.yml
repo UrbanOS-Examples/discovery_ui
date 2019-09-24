@@ -4,7 +4,7 @@ node_js:
 services:
   - docker
 script:
-  - travis_wait docker build -t discovery_ui:build .
+  - travis_wait docker build -t discovery:build .
 deploy:
 - provider: script
   skip_cleanup: true

@@ -7,9 +7,9 @@ echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdi
 echo "Determining image tag for ${TRAVIS_BRANCH} build ..."
 
 if [[ $RELEASE_TYPE == "release" ]]; then
-    export TAGGED_IMAGE="smartcitiesdata/discovery_ui:${TRAVIS_BRANCH}"
+    export TAGGED_IMAGE="smartcolumbusos/discovery:${TRAVIS_BRANCH}"
 elif [[ $RELEASE_TYPE == "master" ]]; then
-    export TAGGED_IMAGE="smartcitiesdata/discovery_ui:development"
+    export TAGGED_IMAGE="smartcolumbusos/discovery:development"
 else
     echo "Branch should not be pushed to Dockerhub"
     exit 0
@@ -17,5 +17,5 @@ fi
 
 echo "Pushing to Dockerhub with tag ${TAGGED_IMAGE} ..."
 
-docker tag discovery_ui:build "${TAGGED_IMAGE}"
+docker tag discovery:build "${TAGGED_IMAGE}"
 docker push "${TAGGED_IMAGE}"
