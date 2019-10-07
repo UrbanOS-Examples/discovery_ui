@@ -74,7 +74,6 @@ export default class Header extends Component {
     const dataInAction = {
       title: 'DATA IN ACTION',
       items: [
-        { link: `https://${window.BASE_URL}/data-stories/how-to-use-this-site`, text: "How to Use The SCOS" },
         { link: `https://${window.BASE_URL}/data-stories/apps-maps`, text: "Apps & Maps" },
         { link: `https://${window.BASE_URL}/data-stories/case-studies`, text: "Case Studies" },
         { link: `https://${window.BASE_URL}/data-stories/open-challenges`, text: "Open Challenges" },
@@ -83,11 +82,11 @@ export default class Header extends Component {
     }
 
     const toolsData = {
-      title: 'TOOLS',
+      title: 'RESOURCES',
       items: [
-        {
-          link: `https://${window.BASE_URL}/tools/analytics`, text: "JupyterHub Betatesters"
-        }
+        { link: `https://${window.BASE_URL}/tools/how-to-use-this-site`, text: "How to Use The SCOS" },
+        { link: `https://${window.BASE_URL}/tools/explore-the-visualization-of-data`, text: "Explore the Visualization of Data" },
+        { link: `https://${window.BASE_URL}/tools/datasets-curated-for-visualization`, text: "Datasets Curated For Visualization" }
       ]
     }
 
