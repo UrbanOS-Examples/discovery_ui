@@ -17,5 +17,5 @@ fi
 
 echo "Pushing to Dockerhub with tag ${TAGGED_IMAGE} ..."
 
-docker tag discovery:build "${TAGGED_IMAGE}"
+docker tag discovery_ui:build "${TAGGED_IMAGE}"
 docker push "${TAGGED_IMAGE}"
