@@ -1,22 +1,22 @@
 {
-  "name": "discovery",
+  "name": "discovery_ui",
   "version": "1.0.0",
   "description": "UI for dataset discovery",
   "main": "./src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smartcolumbusos/discovery.git"
+    "url": "git+https://github.com/smartcolumbusos/discovery_ui.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/smartcolumbusos/discovery/issues"
+    "url": "https://github.com/smartcolumbusos/discovery_ui/issues"
   },
   "browserslist": [
     "last 2 version",
     "> 1%"
   ],
-  "homepage": "https://github.com/smartcolumbusos/discovery#readme",
+  "homepage": "https://github.com/smartcolumbusos/discovery_ui#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
