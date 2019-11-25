@@ -13,7 +13,7 @@ const HomeBanner = _props => {
           <area shape="rect" coords="813,48,925,144" href="/?q=health" />
           <area shape="rect" coords="955,40,1053,144" href="/?q=food" />
           <area shape="rect" coords="386,37,490,149" href="/?q=parking" />
-          <area shape="rect" coords="95,46,184,154" href={`https://${window.BASE_URL}/about/smart-city-projects`} />
+          <area shape="rect" coords="95,46,184,154" href={`https://www.${window.BASE_URL}/about/smart-city-projects`} />
         </map>
       </div>
     </home-banner>
