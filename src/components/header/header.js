@@ -65,28 +65,28 @@ export default class Header extends Component {
     const aboutData = {
       title: 'ABOUT',
       items: [
-        { link: `https://${window.BASE_URL}/about/about-smart-columbus`, text: "About Smart Columbus" },
-        { link: `https://${window.BASE_URL}/about/smart-city-projects`, text: "Smart City Projects" },
-        { link: `https://${window.BASE_URL}/about/privacy-policy`, text: "Privacy Policy" }
+        { link: `https://www.${window.BASE_URL}/about/about-smart-columbus`, text: "About Smart Columbus" },
+        { link: `https://www.${window.BASE_URL}/about/smart-city-projects`, text: "Smart City Projects" },
+        { link: `https://www.${window.BASE_URL}/about/privacy-policy`, text: "Privacy Policy" }
       ]
     }
 
     const dataInAction = {
       title: 'DATA IN ACTION',
       items: [
-        { link: `https://${window.BASE_URL}/data-stories/apps-maps`, text: "Apps & Maps" },
-        { link: `https://${window.BASE_URL}/data-stories/case-studies`, text: "Case Studies" },
-        { link: `https://${window.BASE_URL}/data-stories/open-challenges`, text: "Open Challenges" },
-        { link: `https://${window.BASE_URL}/data-stories/events`, text: "Events" }
+        { link: `https://www.${window.BASE_URL}/data-stories/apps-maps`, text: "Apps & Maps" },
+        { link: `https://www.${window.BASE_URL}/data-stories/case-studies`, text: "Case Studies" },
+        { link: `https://www.${window.BASE_URL}/data-stories/open-challenges`, text: "Open Challenges" },
+        { link: `https://www.${window.BASE_URL}/data-stories/events`, text: "Events" }
       ]
     }
 
     const toolsData = {
       title: 'RESOURCES',
       items: [
-        { link: `https://${window.BASE_URL}/tools/how-to-use-this-site`, text: "How to Use The SCOS" },
-        { link: `https://${window.BASE_URL}/tools/explore-the-visualization-of-data`, text: "Explore the Visualization of Data" },
-        { link: `https://${window.BASE_URL}/tools/datasets-curated-for-visualization`, text: "Datasets Curated For Visualization" }
+        { link: `https://www.${window.BASE_URL}/tools/how-to-use-this-site`, text: "How to Use The SCOS" },
+        { link: `https://www.${window.BASE_URL}/tools/explore-the-visualization-of-data`, text: "Explore the Visualization of Data" },
+        { link: `https://www.${window.BASE_URL}/tools/datasets-curated-for-visualization`, text: "Datasets Curated For Visualization" }
       ]
     }
 
@@ -95,10 +95,10 @@ export default class Header extends Component {
       <div className={`nav-wrapper ${this.state.collapsed ? 'pinned' : ''}`}>
         <NavDropdown data={aboutData} />
         <a className='nav-element highlighted' href="/">EXPLORE DATA</a>
-        <a className='nav-element' href={`https://${window.BASE_URL}/share-your-data`}>SHARE DATA</a>
+        <a className='nav-element' href={`https://www.${window.BASE_URL}/share-your-data`}>SHARE DATA</a>
         <NavDropdown data={dataInAction} />
         <NavDropdown data={toolsData} />
-        <a className='nav-element' href={`https://${window.BASE_URL}/contact-us`}>CONNECT</a>
+        <a className='nav-element' href={`https://www.${window.BASE_URL}/contact-us`}>CONNECT</a>
       </div >
     )
   }
@@ -107,7 +107,7 @@ export default class Header extends Component {
     return (
       <header>
         <div className={`logo ${this.state.collapsed ? 'scale-down' : 'rescale'}`}>
-          <a href={`https://${window.BASE_URL}`}><img src={smrtLogo} height='140'></img></a>
+          <a href={`https://www.${window.BASE_URL}`}><img src={smrtLogo} height='140'></img></a>
         </div>
         <div className="wrapper">
           {this.infoRow()}
