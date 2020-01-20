@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const zopfli = require('@gfx/zopfli')
 const TerserPlugin = require('terser-webpack-plugin')
+const SriPlugin = require('webpack-subresource-integrity');
 
 module.exports = (env, argv) => {
 
@@ -34,6 +35,9 @@ module.exports = (env, argv) => {
         return zopfli.gzip(input, compressionOptions, callback);
       },
     }))
+    plugins.push(new SriPlugin({
+      hashFuncNames: ['sha256', 'sha384']
+    }))  
   }
 
   return {
@@ -43,7 +47,8 @@ module.exports = (env, argv) => {
     output: {
       filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
-      publicPath: '/'
+      publicPath: '/',
+      crossOriginLoading: 'anonymous'
     },
     module: {
       rules: [
