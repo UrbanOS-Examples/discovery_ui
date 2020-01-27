@@ -67,6 +67,7 @@ export default class Header extends Component {
       items: [
         { link: `https://www.${window.BASE_URL}/about/about-smart-columbus`, text: "About Smart Columbus" },
         { link: `https://www.${window.BASE_URL}/about/smart-city-projects`, text: "Smart City Projects" },
+        { link: `https://www.${window.BASE_URL}/tools/how-to-use-this-site`, text: "How to Use The SCOS" },
         { link: `https://www.${window.BASE_URL}/about/privacy-policy`, text: "Privacy Policy" }
       ]
     }
@@ -74,7 +75,6 @@ export default class Header extends Component {
     const dataInAction = {
       title: 'DATA IN ACTION',
       items: [
-        { link: `https://www.${window.BASE_URL}/data-stories/apps-maps`, text: "Apps & Maps" },
         { link: `https://www.${window.BASE_URL}/data-stories/case-studies`, text: "Case Studies" },
         { link: `https://www.${window.BASE_URL}/data-stories/open-challenges`, text: "Open Challenges" },
         { link: `https://www.${window.BASE_URL}/data-stories/events`, text: "Events" }
@@ -84,9 +84,8 @@ export default class Header extends Component {
     const toolsData = {
       title: 'RESOURCES',
       items: [
-        { link: `https://www.${window.BASE_URL}/tools/how-to-use-this-site`, text: "How to Use The SCOS" },
-        { link: `https://www.${window.BASE_URL}/tools/explore-the-visualization-of-data`, text: "Explore the Visualization of Data" },
-        { link: `https://www.${window.BASE_URL}/tools/datasets-curated-for-visualization`, text: "Datasets Curated For Visualization" }
+        { link: `https://www.${window.BASE_URL}/tools/datasets-curated-for-visualization`, text: "Datasets Curated For Visualization" },
+        { link: `https://www.${window.BASE_URL}/tools/explore-the-visualization-of-data`, text: "Explore the Visualization of Data" }
       ]
     }
 
