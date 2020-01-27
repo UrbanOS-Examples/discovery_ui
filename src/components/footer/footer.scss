@@ -14,13 +14,17 @@ footer {
     margin-block-end:0;
   }
 
+  h2 {
+    font-size:18px;
+  }
   li {
     display:block;
     float:left;
     clear:right;
     padding:0 50px 20px 0;
     text-align:left;
-    width:30%;
+    width:25%;
+    font-size:15px;
   }
 
   .footer-wrapper{
