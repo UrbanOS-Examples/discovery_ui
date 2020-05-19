@@ -24,7 +24,13 @@ module.exports = (env, argv) => {
     new CopyWebpackPlugin([
       { from: 'config' }
     ]),
-    new RobotstxtPlugin({filePath: './robots.txt'})
+    new RobotstxtPlugin({policy: [
+      {
+        disallow: "/",
+        userAgent: "*",
+      },
+    ],
+    filePath: './robots.txt'})
   ]
 
   if (productionOptimizationsEnabled) {
