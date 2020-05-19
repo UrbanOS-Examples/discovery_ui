@@ -6,6 +6,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const zopfli = require('@gfx/zopfli')
 const TerserPlugin = require('terser-webpack-plugin')
 const SriPlugin = require('webpack-subresource-integrity');
+const RobotstxtPlugin = require('robotstxt-webpack-plugin');
 
 module.exports = (env, argv) => {
 
@@ -22,7 +23,8 @@ module.exports = (env, argv) => {
     }),
     new CopyWebpackPlugin([
       { from: 'config' }
-    ])
+    ]),
+    new RobotstxtPlugin({filePath: './robots.txt'})
   ]
 
   if (productionOptimizationsEnabled) {
@@ -37,7 +39,7 @@ module.exports = (env, argv) => {
     }))
     plugins.push(new SriPlugin({
       hashFuncNames: ['sha256', 'sha384']
-    }))  
+    }))
   }
 
   return {
