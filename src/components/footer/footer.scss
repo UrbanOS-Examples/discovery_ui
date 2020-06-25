@@ -21,10 +21,10 @@ footer {
     display:block;
     float:left;
     clear:right;
-    padding:0 50px 20px 0;
+    padding:0 30px 20px 0;
     text-align:left;
     width:25%;
-    font-size:15px;
+    font-size:13px;
   }
 
   .footer-wrapper{
@@ -42,23 +42,41 @@ footer {
   }
 
   .copyright{
-    margin-top: 50px;
-    padding:14px;
+    margin-top:20px;
+    padding:4% 0 0 0;
     display:inline-block;
+    text-align:center;
+    width:92%;
   }
 
   .footerLeft{
-    width:50%;
+    width:70%;
     float:left;
     margin:0px;
   }
 
   .footerRight{
-    width:46%;
+    width:26%;
     text-align:right;
     padding:20px 0px 0 0;
     float:left;
     margin:0px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .footer-wrapper {
+      background-image: none;
+    }
+    .footerLeft {
+      width:100%;
+      clear:both;
+    }
+    .footerRight {
+      display:none;
+    }
+    .footerLeft li {
+      width:100%;
+    }
   }
 
 }

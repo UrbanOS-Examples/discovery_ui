@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faFacebookF, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 import cbusLogo from '../../assets/columbus-city-logo.png'
 import smrtLogo from '../../assets/smrt-logo.png'
+import { HamburgerButton } from 'react-hamburger-button';
 
 export default class Header extends Component {
   static defaultProps = {
@@ -33,6 +34,12 @@ export default class Header extends Component {
     });
   }
 
+  handleClick() {
+    this.setState({
+      open: !this.state.open
+    });
+  }
+
   infoRow() {
     return (
       <div>
@@ -58,6 +65,21 @@ export default class Header extends Component {
           </tbody>
         </table>
       </div>
+    )
+  }
+
+  hamBurger() {
+    return (
+      <div className="hamburger">
+      <HamburgerButton
+      open={this.state.open}
+      onClick={this.handleClick.bind(this)}
+      width={18}
+      height={15}
+      strokeWidth={2}
+      color='white'
+      animationDuration={0.5}
+     /></div>
     )
   }
 
@@ -91,7 +113,7 @@ export default class Header extends Component {
 
 
     return (
-      <div className={`nav-wrapper ${this.state.collapsed ? 'pinned' : ''}`}>
+      <div className={`nav-wrapper ${this.state.collapsed ? 'pinned' : ''} ${this.state.open ? 'open' : ''}`}>
         <NavDropdown data={aboutData} />
         <a className='nav-element highlighted' href="/">EXPLORE DATA</a>
         <a className='nav-element' href={`https://www.${window.BASE_URL}/share-your-data`}>SHARE DATA</a>
@@ -106,10 +128,11 @@ export default class Header extends Component {
     return (
       <header>
         <div className={`logo ${this.state.collapsed ? 'scale-down' : 'rescale'}`}>
-          <a href={`https://www.${window.BASE_URL}`}><img src={smrtLogo} height='140'></img></a>
+          <a href={`https://www.${window.BASE_URL}`}><img src={smrtLogo} height='96'></img></a>
         </div>
         <div className="wrapper">
           {this.infoRow()}
+          {this.hamBurger()}
           {this.navBar()}
         </div>
       </header>

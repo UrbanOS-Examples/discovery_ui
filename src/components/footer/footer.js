@@ -23,7 +23,7 @@ const Footer = props => {
           </div>
           <div className="footerRight">< img src={smartStart} /></div>
         </div >
-        <div className="copyright">Smart Columbus Copyright ©2020. All rights reserved.</div>
+        <div className="copyright"> © 2020 Smart Columbus Operating System. All rights reserved.</div>
       </div >
     </footer>
   )

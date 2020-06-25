@@ -1,20 +1,31 @@
 import './home-banner.scss'
-import bannerOverlay from '../../assets/home-banner-overlay.png'
+import proJects from '../../assets/projects.png'
+import moBility from '../../assets/mobility.png'
+import parKing from '../../assets/parking.png'
+import enVironment from '../../assets/environment.png'
+import eNergy from '../../assets/energy.png'
+import heaLth from '../../assets/health.png'
+import fooD from '../../assets/food.png'
+import viZ from '../../assets/viz.png'
+import maP from '../../assets/map.png'
+import mabrowze from '../../assets/browse.png'
 
 const HomeBanner = _props => {
   return (
     <home-banner>
       <div className="banner-background">
-        <img src={bannerOverlay} className="banner-overlay" useMap="#bannerMap" />
-        <map name="bannerMap">
-          <area shape="rect" coords="233,52,354,150" href="/?q=transportation&amp;facets%5Bkeywords%5D%5B%5D=Transportation" />
-          <area shape="rect" coords="537,29,635,146" href="/?q=environment" />
-          <area shape="rect" coords="676,53,776,142" href="/?q=energy" />
-          <area shape="rect" coords="813,48,925,144" href="/?q=health" />
-          <area shape="rect" coords="955,40,1053,144" href="/?q=food" />
-          <area shape="rect" coords="386,37,490,149" href="/?q=parking" />
-          <area shape="rect" coords="95,46,184,154" href={`https://www.${window.BASE_URL}/about/smart-city-projects`} />
-        </map>
+        <ul>
+          <li><img className="browse" src={mabrowze}/></li>
+          <li><a href={`https://www.${window.BASE_URL}/about/smart-city-projects`}><img className="projects" src={proJects}/></a></li>
+          <li><a href="/?q=transportation&amp;facets%5Bkeywords%5D%5B%5D=Transportation"><img className="mobility" src={moBility}/></a></li>
+          <li><a href="/?q=parking"><img className="parking" src={parKing}/></a></li>
+          <li><a href="/?q=environment"><img className="environment" src={enVironment}/></a></li>
+          <li><a href="/?q=energy"><img className="energy" src={eNergy}/></a></li>
+          <li><a href="/?q=health"><img className="health" src={heaLth}/></a></li>
+          <li><a href="/?q=food"><img className="food" src={fooD}/></a></li>
+          <li><a href="/?q=&facets%5Bkeywords%5D%5B%5D=visualized-datasets&apiAccessible=false"><img className="viz" src={viZ}/></a></li> 
+          <li><a href={`https://www.${window.BASE_URL}/tools/datasets-curated-for-visualization`}><img className="map" src={maP}/></a></li>  
+        </ul>
       </div>
     </home-banner>
   )
