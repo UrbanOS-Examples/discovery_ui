@@ -19,6 +19,8 @@ const Footer = props => {
             <li><a href={`https://data.smartcolumbusos.com/tableau/connector.html`}>Tableau Web Connector</a> </li>
             <li><a href={`https://${window.BASE_URL}/images/Assets/SCC_De-Identification_Policy_20190917_update.pdf`}> De-Identification Policy</a > </li>
             <li><a href={`https://${window.BASE_URL}/contact-us`}>Contact Us</a> </li>
+            <li><a href={`https://${window.BASE_URL}/about/terms-of-use`}>Terms of Use</a> </li>
+            <li><a href={`https://${window.BASE_URL}/about/privacy-policy`}>Privacy Policy</a> </li>
             </ul>
           </div>
           <div className="footerRight">< img src={smartStart} /></div>
