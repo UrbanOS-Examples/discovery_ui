@@ -89,8 +89,7 @@ export default class Header extends Component {
       items: [
         { link: `https://www.${window.BASE_URL}/about/about-smart-columbus`, text: "About Smart Columbus" },
         { link: `https://www.${window.BASE_URL}/about/smart-city-projects`, text: "Smart City Projects" },
-        { link: `https://www.${window.BASE_URL}/tools/how-to-use-this-site`, text: "How to Use The SCOS" },
-        { link: `https://www.${window.BASE_URL}/about/privacy-policy`, text: "Privacy Policy" }
+        { link: `https://www.${window.BASE_URL}/tools/how-to-use-this-site`, text: "How to Use The SCOS" }
       ]
     }
 
