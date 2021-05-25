@@ -4,10 +4,10 @@ RELEASE_TYPE=$1
 echo "Logging into Dockerhub ..."
 echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 
-echo "Determining image tag for ${TRAVIS_BRANCH} build ..."
+echo "Determining image tag for ${GITHUB_BRANCH} build ..."
 
 if [[ $RELEASE_TYPE == "release" ]]; then
-    export TAGGED_IMAGE="smartcolumbusos/discovery_ui:${TRAVIS_BRANCH}"
+    export TAGGED_IMAGE="smartcolumbusos/discovery_ui:${GITHUB_BRANCH}"
 elif [[ $RELEASE_TYPE == "master" ]]; then
     export TAGGED_IMAGE="smartcolumbusos/discovery_ui:development"
 else
