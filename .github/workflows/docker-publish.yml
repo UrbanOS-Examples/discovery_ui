@@ -11,22 +11,24 @@ on:
 env:
   GITHUB_BRANCH: ${{ github.event.release.tag_name }} 
 jobs:
-  development_image:
+  dev:
+    name: Publish Development Image
     runs-on: ubuntu-latest
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
 
     steps:
-      - uses: actions/checkout@v2
-
+      - name: Build Image
+        run: docker build -t discovery_ui:build .
       - name: Publish Dev Image
         run: bash scripts/deploy.sh master
         
-  release_image:
+  release:
+    name: Release Image
     runs-on: ubuntu-latest
     if: github.event_name == 'release'
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Publish Dev Image
+      - name: Build Image
+        run: docker build -t discovery_ui:build .
+      - name: Publish Tagged Image
         run: bash scripts/deploy.sh release
