@@ -1,0 +1,32 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - main
+  release:
+    types:
+      - created
+  workflow_dispatch:
+env:
+  GITHUB_BRANCH: ${{ github.event.release.tag_name }} 
+jobs:
+  development_image:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Publish Dev Image
+        run: bash scripts/deploy.sh master
+        
+  release_image:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Publish Dev Image
+        run: bash scripts/deploy.sh release
