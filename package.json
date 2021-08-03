@@ -21,14 +21,14 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@smartcitiesdata/react-discovery-ui": "^1.7.3",
+    "@smartcitiesdata/react-discovery-ui": "file:../react_discovery_ui/smartcitiesdata-react-discovery-ui-1.8.0.tgz",
     "react": "~16.8.6",
     "react-dom": "~16.8.6",
     "react-hamburger-button": "0.0.1",
     "react-hamburger-menu": "^1.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
+    "@babel/cli": "^7.14.8",
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",
@@ -73,7 +73,7 @@
     "svg-inline-loader": "^0.8.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.3.1",
+    "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^4.2.1",
     "webpack-subresource-integrity": "^1.4.0"
   },
