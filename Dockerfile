@@ -1,4 +1,4 @@
-FROM node:10.7.0-alpine AS builder
+FROM node:14.17.4-alpine AS builder
 COPY . /app/src
 WORKDIR /app/src
 RUN npm ci
