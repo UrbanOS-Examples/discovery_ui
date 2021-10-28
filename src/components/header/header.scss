@@ -1,3 +1,7 @@
+/* offset-x | offset-y | blur-radius | spread-radius | color */
+$box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+
+
 body {
   overflow-x: hidden;
 }
@@ -12,7 +16,7 @@ header {
   padding: 0;
   z-index: 1000;
   position: relative;
-  margin-bottom: 57px;
+  margin-bottom: 124px;
 
   a {
     text-decoration: none;
@@ -24,12 +28,13 @@ header {
   }
 
   .logo {
-    position: absolute;
-    display: inline-block;
-    position: fixed;
     top: 0;
     z-index: 100;
-    margin-left: 20px;
+    margin-left: 40px;
+    height: 44px;
+    a img {
+      max-height: 100%;
+    }
   }
   .hamburger {
     float:right;
@@ -50,12 +55,21 @@ header {
     padding-bottom: 10px;
     text-align: right;
     border-bottom: 1px solid #e2e0e0;
-    box-shadow: 0 6px 7px 0 rgba(0,0,0,.25);
+    box-shadow: $box-shadow;
+    height: 124px;
   }
 
   .nav-wrapper.pinned {
-    box-shadow: 0 6px 7px 0 rgba(0,0,0,.25);
-    border-bottom:none;
+    box-shadow: $box-shadow;
+    border-bottom: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-element-container {
+    margin-right: 34px;
   }
 
   .nav-element{
@@ -68,11 +82,11 @@ header {
     
   }
 
-  .nav-element:hover {
-    background-color: black;
-    color: white;
-    border: black solid 5px;
-  }
+  // .nav-element:hover {
+  //   background-color: black;
+  //   color: white;
+  //   border: black solid 5px;
+  // }
 
   .highlighted {
     background-color: white;
@@ -80,10 +94,10 @@ header {
     border: black solid 5px;
   }
 
-  .highlighted:hover {
-    background-color: black;
-    color: white;
-  }
+  // .highlighted:hover {
+  //   background-color: black;
+  //   color: white;
+  // }
 
   .pinned {
     position: fixed;
@@ -94,7 +108,11 @@ header {
 
   .purple {
     color:#ea1d76;
-}
+  }
+
+  .blue {
+    color: #1890ff;
+  }
 
   .rescale {
     -webkit-animation: scale-up 0.2s ease forwards;
@@ -249,11 +267,11 @@ header {
   nav-dropdown li {
     line-height:1.2
 }
-  header .nav-element:hover {
-    background-color: #1a1a1a;
-    color: white;
-    border: none;
-  }
+  // header .nav-element:hover {
+  //   background-color: #1a1a1a;
+  //   color: white;
+  //   border: none;
+  // }
 }    
     @media only screen and (max-width: 600px) {
       main-app-element {
@@ -333,9 +351,9 @@ header {
       nav-dropdown li {
         line-height:1.2
     }
-      header .nav-element:hover {
-        background-color: #1a1a1a;
-        color: white;
-        border: none;
-      }
+      // header .nav-element:hover {
+      //   background-color: #1a1a1a;
+      //   color: white;
+      //   border: none;
+      // }
 } 
