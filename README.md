@@ -1,8 +1,6 @@
-[![Master](https://travis-ci.org/smartcolumbusos/discovery_ui.svg?branch=master)](https://travis-ci.org/smartcolumbusos/discovery_ui)
+# discovery_ui (default branding)
 
-# discovery_ui
-
-Discovery UI provides Columbus specific branding and navigation controls around the [react-discovery-ui](https://github.com/smartcitiesdata/react_discovery_ui) component. This allows for the base components to be brand agnostic.
+Discovery UI provides default branding and navigation controls around the [react-discovery-ui](https://github.com/smartcitiesdata/react_discovery_ui) component. This allows for the base components to be brand agnostic.
 
 ## How to use
 
