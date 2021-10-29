@@ -99,7 +99,7 @@ export default class Header extends Component {
         <div className="nav-element-container">
           <a
             className="nav-element blue"
-            href={`https://www.${window.BASE_URL}/project-data`}
+            href={"/"}
           >
             EXPLORE DATA
           </a>
