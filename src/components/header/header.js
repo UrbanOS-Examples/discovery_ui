@@ -116,7 +116,7 @@ export default class Header extends Component {
       <header>
         <div className="wrapper">
           {/* {this.infoRow()} */}
-          {this.hamBurger()}
+          {/* {this.hamBurger()} */}
           {this.navBar()}
         </div>
       </header>
