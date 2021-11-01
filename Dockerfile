@@ -2,8 +2,8 @@ FROM node:14.17.4-alpine AS builder
 COPY . /app/src
 WORKDIR /app/src
 RUN npm ci
-RUN npm run build
 RUN npm test
+RUN npm run build
 
 FROM nginx
 RUN apt-get -y update &&\
