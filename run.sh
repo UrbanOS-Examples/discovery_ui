@@ -13,6 +13,8 @@ window.AUTH0_CLIENT_ID = '${AUTH0_CLIENT_ID}'
 window.AUTH0_AUDIENCE = '${AUTH0_AUDIENCE}'
 EOL
 
-cat /etc/nginx/conf.d/default.conf.tpl | envsubst \$ADDITIONAL_CSP_HOSTS > /etc/nginx/conf.d/default.conf
+# todo: we need to accomplish this somehow. What's being copied here?
+# can we do this in the docker file?
+# cat /etc/nginx/conf.d/default.conf.tpl | envsubst \$ADDITIONAL_CSP_HOSTS > /etc/nginx/conf.d/default.conf
 
 nginx -g "daemon off;"
