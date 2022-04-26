@@ -1,23 +1,28 @@
 FROM node:14.17.4-alpine AS builder
-RUN chgrp -R 0 ${HOME} && \
-    chmod -R g+rwX ${HOME}
-
-COPY . /app/src
 WORKDIR /app/src
+
+# Copy only the needed files to help docker caching
+COPY .babelrc package-lock.json package.json webpack.config.js ./
+COPY src ./src
+COPY test-helpers ./test-helpers
+COPY config ./config
 
 RUN npm ci
 RUN npm test
 RUN npm run build
 
+RUN chgrp -R 0 /app/src && \
+    chmod -R g+rwX /app/src
+
 FROM nginxinc/nginx-unprivileged
+ENV HOME=/usr/share/nginx/html
 
-# RUN chgrp -R 0 /usr/share/nginx && \
-#     chmod -R g+rwX /usr/share/nginx
+COPY --from=builder /app/src/dist ${HOME}
+COPY nginx-default.conf ${HOME}/default.conf.tpl
+COPY run.sh ${HOME}
 
-COPY --from=builder /app/src/dist ${HOME}/nginx/html
-COPY --from=builder /app/src/run.sh ${HOME}/run.sh
-COPY --from=builder /app/src/nginx-default.conf /etc/nginx/conf.d/default.conf.tpl
-
-WORKDIR ${HOME}/nginx/html
+ENV PORT 8080
+EXPOSE ${PORT}
+WORKDIR ${HOME}
 USER default
-CMD ${HOME}/run.sh
+CMD ./run.sh
