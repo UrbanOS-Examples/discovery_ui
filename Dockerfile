@@ -1,16 +1,28 @@
 FROM node:14.17.4-alpine AS builder
-COPY . /app/src
 WORKDIR /app/src
+
+# Copy only the needed files to help docker caching
+COPY .babelrc package-lock.json package.json webpack.config.js ./
+COPY src ./src
+COPY test-helpers ./test-helpers
+COPY config ./config
+
 RUN npm ci
 RUN npm test
 RUN npm run build
 
-FROM nginx
-RUN apt-get -y update &&\
-    apt-get install -y nginx-extras &&\
-    rm /etc/nginx/sites-enabled/default
-COPY --from=builder /app/src/dist /usr/share/nginx/html
-COPY --from=builder /app/src/run.sh /run.sh
-COPY --from=builder /app/src/nginx-default.conf /etc/nginx/conf.d/default.conf.tpl
-WORKDIR /usr/share/nginx/html
-CMD ["/run.sh"]
+RUN chgrp -R 0 /app/src && \
+    chmod -R g+rwX /app/src
+
+FROM nginxinc/nginx-unprivileged
+ENV HOME=/usr/share/nginx/html
+
+COPY --from=builder /app/src/dist ${HOME}
+COPY nginx-default.conf ${HOME}/default.conf.tpl
+COPY run.sh ${HOME}
+
+ENV PORT 8080
+EXPOSE ${PORT}
+WORKDIR ${HOME}
+USER default
+CMD ./run.sh
