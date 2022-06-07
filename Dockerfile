@@ -15,7 +15,7 @@ RUN chgrp -R 0 /app/src && \
     chmod -R g+rwX /app/src
 
 FROM registry.access.redhat.com/ubi8/nginx-118:1-69.1652296458
-ENV HOME=/usr/share/nginx/html
+ENV HOME=/opt/app-root/src
 
 COPY --from=builder /app/src/dist ${HOME}
 COPY run.sh ${HOME}
