@@ -14,11 +14,10 @@ RUN npm run build
 RUN chgrp -R 0 /app/src && \
     chmod -R g+rwX /app/src
 
-FROM nginxinc/nginx-unprivileged
-ENV HOME=/usr/share/nginx/html
+FROM registry.access.redhat.com/ubi8/nginx-118:1-69.1652296458
+ENV HOME=/opt/app-root/src
 
 COPY --from=builder /app/src/dist ${HOME}
-COPY nginx-default.conf ${HOME}/default.conf.tpl
 COPY run.sh ${HOME}
 
 ENV PORT 8080
