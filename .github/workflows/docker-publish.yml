@@ -26,6 +26,8 @@ jobs:
         run: docker build -t discovery_ui:build .
       - name: Publish Dev Image
         run: bash scripts/deploy.sh master
+      - name: Publish to Quay
+        run: bash scripts/quay.sh discovery_ui development
 
   release:
     name: Release Image
@@ -38,5 +40,3 @@ jobs:
         run: docker build -t discovery_ui:build .
       - name: Publish Tagged Image
         run: bash scripts/deploy.sh release
-      - name: Publish to Quay
-        run: bash scripts/quay.sh discovery_ui development
