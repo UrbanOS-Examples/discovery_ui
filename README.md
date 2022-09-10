@@ -2,6 +2,8 @@
 
 Discovery UI provides default branding and navigation controls around the [react-discovery-ui](https://github.com/smartcitiesdata/react_discovery_ui) component. This allows for the base components to be brand agnostic.
 
+A guide on how to use an instance of discovery_ui is available in the [smartcitiesdata wiki](https://github.com/UrbanOS-Public/smartcitiesdata/wiki/Data-Discovery-(DiscoveryUI)-User-Manual)
+
 ## How to use
 
 ### Install Dependencies
