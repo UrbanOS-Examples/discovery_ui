@@ -14,7 +14,7 @@ RUN npm run build
 RUN chgrp -R 0 /app/src && \
     chmod -R g+rwX /app/src
 
-FROM registry.access.redhat.com/ubi8/nginx-118:1-77
+FROM registry.access.redhat.com/ubi8/nginx-118:1-80
 ENV HOME=/opt/app-root/src
 
 COPY --from=builder /app/src/dist ${HOME}
