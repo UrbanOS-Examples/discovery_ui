@@ -1,5 +1,0 @@
-[centos]
-name=CentOS $releasever - $basearch
-baseurl=http://mirror.stream.centos.org/9-stream/BaseOS/aarch64/os/
-enabled=1
-gpgcheck=0
