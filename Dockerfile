@@ -29,8 +29,8 @@ WORKDIR ${HOME}
 #  Urllib3 1.26.5 includes a fix for CVE-2021-33503: An issue was discovered in urllib3 before 1.26.5. When provided with a URL containing many @ characters in the authority component, the authority regular expression exhibits catastrophic backtracking, causing a denial of service if a URL were passed as a parameter or redirected to via an HTTP redirect. https://github.com/advisories/GHSA-q2q7-5pp4-w6pg
 # =========================================================
 USER root
-# COPY docker_assets/centos.repo /etc/yum.repos.d/centos.repo
-RUN yum remove python3-urllib3 -y
+COPY docker_assets/centos.repo /etc/yum.repos.d/centos.repo
+RUN yum upgrade python3-urllib3 -y
 # =========================================================
 #  END PATCH
 # =========================================================
