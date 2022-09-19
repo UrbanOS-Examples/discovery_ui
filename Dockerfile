@@ -14,16 +14,9 @@ RUN npm run build
 RUN chgrp -R 0 /app/src && \
     chmod -R g+rwX /app/src
 
-FROM registry.access.redhat.com/ubi8/nginx-120:1-60
-ENV HOME=/opt/app-root/src
-
-COPY --from=builder /app/src/dist ${HOME}
-COPY run.sh ${HOME}
-
-ENV PORT 8080
-EXPOSE ${PORT}
-WORKDIR ${HOME}
+FROM nginx:alpine
+COPY docker_assets/nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /app/src/dist /usr/share/nginx/html
 USER root
-RUN yum remove python3-urllib3-1.24.2-5.el8.noarch -y
-USER default
-CMD ./run.sh
+RUN apk update && apk upgrade
+USER nginx
