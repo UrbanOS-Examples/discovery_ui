@@ -23,5 +23,7 @@ COPY run.sh ${HOME}
 ENV PORT 8080
 EXPOSE ${PORT}
 WORKDIR ${HOME}
+USER root
+RUN yum remove python3-urllib3-1.24.2-5.el8.noarch -y
 USER default
 CMD ./run.sh
