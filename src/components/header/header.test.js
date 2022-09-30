@@ -1,7 +1,8 @@
+import React from 'react'
 import { render, fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Header from './header'
-import expect from 'expect'
+import 'src/assets/urbanos-logo.png'
 
 describe('Header', () => {
   window.BASE_URL = 'testBaseUrl'
@@ -14,6 +15,18 @@ describe('Header', () => {
 
     expect(headerLogo.closest('a')).toHaveAttribute('href', 'testBaseUrl')
     expect(headerLogo).toHaveAttribute('src', 'testLogoSrc')
+    expect(headerLogo).toHaveAttribute('alt', 'header-logo')
+  })
+
+  test('uses backup logo when initial image src fails', () => {
+    render(<Header />)
+
+    const headerLogo = screen.getByAltText('header-logo')
+    fireEvent.error(headerLogo)
+
+    // test-file-stub is returned by image-mock.js in place of the imported image
+    expect(headerLogo).toHaveAttribute('src', 'test-file-stub')
+    expect(headerLogo).toHaveAttribute('alt', 'default-header-logo')
   })
 
   test('contains explore link', () => {
