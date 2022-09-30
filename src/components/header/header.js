@@ -1,48 +1,12 @@
 import './header.scss'
-import { Component } from 'react'
-import NavDropdown from '../nav-dropdown'
+import React from 'react'
 import urbanosLogo from '../../assets/urbanos-logo.png';
-import { HamburgerButton } from 'react-hamburger-button';
 
-export default class Header extends Component {
-  static defaultProps = {
-    scrollThreshold: 60
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapsed: true
-    };
-    this.handleScroll = this.handleScroll.bind(this)
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll(event) {
-    // this.setState({
-    //   collapsed: window.scrollY > this.props.scrollThreshold
-    // });
-  }
-
-  handleClick() {
-    this.setState({
-      open: !this.state.open
-    });
-  }
-
-  navBar() {
+const Header = () => {
+  const navBar = () => {
     return (
       <div
-        className={`nav-wrapper ${this.state.collapsed ? "pinned" : ""} ${
-          this.state.open ? "open" : ""
-        }`}
+        className={"nav-wrapper pinned"}
       >
         <div className={"logo"}>
           <a href={`${window.BASE_URL}`}>
@@ -61,17 +25,15 @@ export default class Header extends Component {
           </a>
         </div>
       </div>
-    );
-  }
-
-  render() {
-    return (
-      <header>
-        <div className="wrapper">
-          {this.navBar()}
-        </div>
-      </header>
     )
   }
-}
 
+  return (
+      <header>
+        <div className="wrapper">
+          {navBar()}
+        </div>
+      </header>
+  )
+}
+export default Header
