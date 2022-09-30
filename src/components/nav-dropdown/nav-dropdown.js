@@ -2,21 +2,21 @@ import { Component } from 'react'
 import './nav-dropdown.scss'
 
 export default class extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { expanded: false };
+  constructor (props) {
+    super(props)
+    this.state = { expanded: false }
   }
 
-  aboutEnter() {
+  aboutEnter () {
     this.setState({ expanded: true })
   }
 
-  aboutExit() {
+  aboutExit () {
     this.setState({ expanded: false })
   }
 
-  render() {
-    const { title, items } = this.props.data;
+  render () {
+    const { title, items } = this.props.data
 
     return (
       <nav-dropdown>
@@ -24,13 +24,12 @@ export default class extends Component {
           <div>{title}</div>
           {this.state.expanded &&
             <div className='dropdown-contents'>
-              <div></div>
+              <div />
               <ul>
-                {items.map(item => <li key={`${item.text}__${item.link}`} ><a href={item.link}>{item.text}</a></li>)}
+                {items.map(item => <li key={`${item.text}__${item.link}`}><a href={item.link}>{item.text}</a></li>)}
 
               </ul>
-            </div>
-          }
+            </div>}
         </div>
       </nav-dropdown>
     )

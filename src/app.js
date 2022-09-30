@@ -4,13 +4,13 @@ import Header from './components/header'
 import Footer from './components/footer'
 
 export default class App extends Component {
-  render() {
+  render () {
     return (
       <div>
         <Header />
         <ReactDiscoveryUI />
         <Footer />
-      </div >
+      </div>
     )
   }
 }

@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import NavDropdown from './nav-dropdown';
+import NavDropdown from './nav-dropdown'
 
 describe('Nav dropdown', () => {
   const TITLE = '__ABOUT_TEST__'
@@ -12,7 +12,7 @@ describe('Nav dropdown', () => {
       link: 'https://www.example.com',
       text: 'The Power of Love'
     }
-  };
+  }
 
   const DATA = {
     title: TITLE,
@@ -20,7 +20,7 @@ describe('Nav dropdown', () => {
       ITEMS.FIRST,
       ITEMS.SECOND
     ]
-  };
+  }
 
   test('has passed in title', () => {
     const subject = shallow(<NavDropdown data={DATA} />)
