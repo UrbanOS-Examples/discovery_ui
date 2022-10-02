@@ -1,17 +1,18 @@
 import './footer.scss'
 
 const Footer = () => {
+
+  const links = JSON.parse(window.FOOTER_LINKS),
+    renderLink = ({ url, linkText }) => <a class="link" href={url}> {linkText}</a>;
+
   return (
     <footer>
       <div className='footer-wrapper'>
         <ul>
-          <li>© 2021 UrbanOS. All rights reserved.</li>
-          <li><a href='/' target='_blank'> Privacy</a> </li>
-          <li><a href='/' target='_blank'> Terms of Use</a> </li>
-          <li><a href='/' target='_blank'> Cookie preferences</a> </li>
+          <li className='left-side-text'>{window.FOOTER_LEFT_SIDE_TEXT}</li>
         </ul>
-        <ul>
-          <li className='powered-by'>Powered by UrbanOS</li>
+        <ul className='links'>
+          {links.map(renderLink)}
         </ul>
       </div>
     </footer>
