@@ -1,77 +1,53 @@
 import './header.scss'
-import { Component } from 'react'
-import NavDropdown from '../nav-dropdown'
-import urbanosLogo from '../../assets/urbanos-logo.png';
-import { HamburgerButton } from 'react-hamburger-button';
+import React, { useState } from 'react'
+import urbanosLogo from '../../assets/urbanos-logo.png'
 
-export default class Header extends Component {
-  static defaultProps = {
-    scrollThreshold: 60
+const Header = () => {
+  const [imageLoadError, setImageLoadError] = useState(false)
+
+  const handleImageLoadError = (e) => {
+    if (!imageLoadError) {
+      setImageLoadError(false)
+      e.target.src = urbanosLogo
+      e.target.alt = 'default-header-logo'
+    }
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapsed: true
-    };
-    this.handleScroll = this.handleScroll.bind(this)
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll(event) {
-    // this.setState({
-    //   collapsed: window.scrollY > this.props.scrollThreshold
-    // });
-  }
-
-  handleClick() {
-    this.setState({
-      open: !this.state.open
-    });
-  }
-
-  navBar() {
+  const navBar = () => {
     return (
       <div
-        className={`nav-wrapper ${this.state.collapsed ? "pinned" : ""} ${
-          this.state.open ? "open" : ""
-        }`}
+        className='nav-wrapper pinned'
       >
-        <div className={"logo"}>
+        <div className='logo'>
           <a href={`${window.BASE_URL}`}>
-            <img src={urbanosLogo}></img>
+            <img
+              src={`${window.LOGO_URL}`}
+              alt='header-logo'
+              onError={handleImageLoadError}
+            />
           </a>
         </div>
-        <div className="nav-element-container">
+        <div className='nav-element-container'>
           <a
-            className="nav-element blue"
-            href={"/"}
+            className='nav-element blue'
+            href='/'
           >
             EXPLORE DATA
           </a>
-          <a className="nav-element" href="/">
+          <a className='nav-element' href='/'>
             ABOUT URBAN OS
           </a>
         </div>
       </div>
-    );
-  }
-
-  render() {
-    return (
-      <header>
-        <div className="wrapper">
-          {this.navBar()}
-        </div>
-      </header>
     )
   }
-}
 
+  return (
+    <header>
+      <div className='wrapper'>
+        {navBar()}
+      </div>
+    </header>
+  )
+}
+export default Header

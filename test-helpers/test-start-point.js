@@ -5,4 +5,3 @@ import '@babel/polyfill'
 
 window.React = React
 Enzyme.configure({ adapter: new Adapter() })
-

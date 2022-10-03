@@ -5,13 +5,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const zopfli = require('@gfx/zopfli')
 const TerserPlugin = require('terser-webpack-plugin')
-const SriPlugin = require('webpack-subresource-integrity');
-const RobotstxtPlugin = require('robotstxt-webpack-plugin');
+const SriPlugin = require('webpack-subresource-integrity')
+const RobotstxtPlugin = require('robotstxt-webpack-plugin')
 
 module.exports = (env, argv) => {
-
-  const productionOptimizationsEnabled = argv.mode === 'production' ? true : false
-  let plugins = [
+  const productionOptimizationsEnabled = argv.mode === 'production'
+  const plugins = [
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: './index.html',
@@ -24,24 +23,26 @@ module.exports = (env, argv) => {
     new CopyWebpackPlugin([
       { from: 'config' }
     ]),
-    new RobotstxtPlugin({policy: [
-      {
-        disallow: "/",
-        userAgent: "*",
-      },
-    ],
-    filePath: './robots.txt'})
+    new RobotstxtPlugin({
+      policy: [
+        {
+          disallow: '/',
+          userAgent: '*'
+        }
+      ],
+      filePath: './robots.txt'
+    })
   ]
 
   if (productionOptimizationsEnabled) {
     plugins.push(new CompressionPlugin({
       exclude: /config/,
       compressionOptions: {
-        numiterations: 15,
+        numiterations: 15
       },
-      algorithm(input, compressionOptions, callback) {
-        return zopfli.gzip(input, compressionOptions, callback);
-      },
+      algorithm (input, compressionOptions, callback) {
+        return zopfli.gzip(input, compressionOptions, callback)
+      }
     }))
     plugins.push(new SriPlugin({
       hashFuncNames: ['sha256', 'sha384']
@@ -93,7 +94,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.scss$/,
-          use: ["style-loader", "css-loader", "sass-loader"]
+          use: ['style-loader', 'css-loader', 'sass-loader']
         }
       ]
     },
@@ -115,7 +116,7 @@ module.exports = (env, argv) => {
               typeofs: false
             }
           }
-        }),
+        })
       ],
       moduleIds: 'hashed',
       runtimeChunk: 'single',
@@ -124,7 +125,7 @@ module.exports = (env, argv) => {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
-            chunks: 'all',
+            chunks: 'all'
           }
         }
       }
