@@ -8,6 +8,7 @@ COPY test-helpers ./test-helpers
 COPY config ./config
 
 RUN npm ci
+RUN npm test
 RUN npm run build
 
 RUN chgrp -R 0 /app/src && \
