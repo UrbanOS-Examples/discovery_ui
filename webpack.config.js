@@ -40,7 +40,7 @@ module.exports = (env, argv) => {
       compressionOptions: {
         numiterations: 15
       },
-      algorithm (input, compressionOptions, callback) {
+      algorithm(input, compressionOptions, callback) {
         return zopfli.gzip(input, compressionOptions, callback)
       }
     }))
