@@ -32,7 +32,7 @@ const Header = () => {
         </div>
         <div className='nav-element-container'>
           <a
-            className='nav-element blue'
+            className='nav-element primary-color'
             href='/'
           >
             EXPLORE DATA

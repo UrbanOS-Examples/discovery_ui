@@ -1,6 +1,6 @@
 {
   "name": "discovery_ui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "UI for dataset discovery",
   "main": "./src/index.js",
   "repository": {
@@ -21,11 +21,12 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@smartcitiesdata/react-discovery-ui": "^2.0.0",
+    "@smartcitiesdata/react-discovery-ui": "^2.0.1",
+    "immutable": "^3.8.2",
     "react": "~16.8.6",
     "react-dom": "~16.8.6",
-    "react-hamburger-button": "0.0.1",
-    "react-hamburger-menu": "^1.1.1"
+    "react-helmet": "^6.1.0",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
