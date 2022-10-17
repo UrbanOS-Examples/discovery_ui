@@ -9,9 +9,9 @@ const Footer = () => {
     <footer>
       <div className='footer-wrapper'>
         <ul>
-          <li key='left' className='left-side-text'>
+          {window.FOOTER_LEFT_SIDE_TEXT && <li key='left' className='left-side-text'>
             {renderLink({ url: window.FOOTER_LEFT_SIDE_LINK, linkText: window.FOOTER_LEFT_SIDE_TEXT })}
-          </li>
+          </li>}
         </ul>
         <ul key='right' className='links'>
           {rightLinks.map(renderLink)}
