@@ -1,3 +1,8 @@
+# Deprecated
+
+Use UrbanOS-Public/discovery-ui instead - https://github.com/UrbanOS-Public/discovery_ui
+
+
 [![Master](https://travis-ci.org/smartcolumbusos/discovery_ui.svg?branch=master)](https://travis-ci.org/smartcolumbusos/discovery_ui)
 
 # discovery_ui
